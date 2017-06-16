@@ -245,6 +245,9 @@
                             <s:url var="URLedit" action="edit" namespace="/do/jacms/Resource">
                                 <s:param name="resourceId" value="%{#resourceid}"/>
                             </s:url>
+                            <s:url var="URLdetail" action="detail" namespace="/do/jacms/Resource">
+                                <s:param name="resourceId" value="%{#resourceid}"/>
+                            </s:url>
                             <s:url var="URLuse" action="joinResource" namespace="/do/jacms/Content/Resource">
                                 <s:param name="resourceId" value="%{#resourceid}"/>
                                 <s:param name="contentOnSessionMarker" value="contentOnSessionMarker"/>
@@ -282,6 +285,14 @@
                                                     </a>
                                                 </s:else>
                                             </li>
+                                            <s:if test="!onEditContent">
+                                                <li>
+                                                    <a href="<s:property value="URLdetail" escapeHtml="false"/>" 
+                                                        title="<s:text name="label.detail" />: <s:property value="#resource.descr" />"/>
+                                                        <s:text name="label.detail"/>
+                                                    </a>
+                                                </li>
+                                            </s:if>
                                             <li>
                                                 <a href="<s:property value="URLtrash" escapeHtml="false" />"><s:text name="label.delete"/></a>
                                             </li>

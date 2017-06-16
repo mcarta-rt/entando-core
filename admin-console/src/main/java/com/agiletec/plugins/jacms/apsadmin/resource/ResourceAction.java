@@ -122,23 +122,6 @@ public class ResourceAction extends AbstractResourceAction implements ResourceDa
 	}
 
 	public String detail() {
-		try {
-			ResourceInterface resource = this.loadResource(this.getResourceId());
-			if (null == resource) {
-				return INPUT;
-			}
-			this.setResourceTypeCode(resource.getType());
-			this.setDescr(resource.getDescription());
-			List<Category> resCategories = resource.getCategories();
-			for (int i = 0; i < resCategories.size(); i++) {
-				Category resCat = resCategories.get(i);
-				this.getCategoryCodes().add(resCat.getCode());
-			}
-			this.setMainGroup(resource.getMainGroup());
-		} catch (Throwable t) {
-			_logger.error("error in detail", t);
-			return FAILURE;
-		}
 		return SUCCESS;
 	}
 
